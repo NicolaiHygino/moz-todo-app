@@ -19,6 +19,7 @@ function App(props) {
         completed={task.completed}
         key={task.id}
         toggleTaskCompleted={toggleTaskCompleted}
+        deleteTask={deleteTask}
       />
     ));
 
@@ -38,6 +39,11 @@ function App(props) {
     setTasks(updateTasks);
   }
 
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter(task => id !== task.id);
+    setTasks(remainingTasks);
+  }
+ 
   return (
     <div className="todoapp stack-large">
       <h1>TodoMatic</h1>
